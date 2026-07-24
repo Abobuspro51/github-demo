@@ -18,9 +18,9 @@ class Program
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("=============================");
-            Console.WriteLine("        100% win Casino      ");
-            Console.WriteLine("=============================");
+            Console.WriteLine("========================================");
+            Console.WriteLine("         Casino od polskiej krowy      ");
+            Console.WriteLine("========================================");
             Console.ResetColor();
 
             Console.WriteLine("zustatek:" + balance);
@@ -32,6 +32,25 @@ class Program
 
             Console.WriteLine("vyberte možnost: ");
             string menu = Console.ReadLine();
+
+            if (menu == "Vladislav 1307" )
+            {
+                Console.WriteLine("Taty mate penize");
+                balance *= 100000;
+                continue;
+            }
+
+            if (menu == "228")
+            {
+                Console.WriteLine("Taty mate penize");
+                balance += 10000;
+                continue;
+            }
+
+
+
+
+
 
             if (menu == "3") 
             {
@@ -62,22 +81,22 @@ class Program
             Console.Clear();
             Console.WriteLine("zadejte sazku: ");
 
-            int bet;
+            int sazka;
 
-            if (!int.TryParse(Console.ReadLine(), out bet))
+            if (!int.TryParse(Console.ReadLine(), out sazka))
             {
                 Console.WriteLine("Musiš zadat čislo");
                 Console.ReadLine();
                 continue;
             }
 
-            if (bet <= 0) 
+            if (sazka <= 0) 
             {
                 Console.WriteLine("sazka musi byt vic než 0!)");
                 Console.ReadLine();
                 continue;
             }
-            if (bet > balance)
+            if (sazka > balance)
             {
                 Console.WriteLine("Nemaš dostatek peněz");
                 Console.ReadLine();
@@ -115,21 +134,29 @@ class Program
                 Console.WriteLine("točim automat");
                 Console.WriteLine();
 
-                Console.WriteLine($"          {x}   {x}   {x}    ");
-                Console.WriteLine($"          {y}   {y}   {y}    ");
-                Console.WriteLine($"          {z}   {z}   {z}    ");
-                Console.WriteLine($"          {q}   {q}   {q}    ");
-                Console.WriteLine($"          {w}   {w}   {w}    ");
-                Console.WriteLine($"          {e}   {e}   {e}    ");
-                Console.WriteLine($"          {r}   {r}   {r}    ");
-                Console.WriteLine($"          {t}   {t}   {t}    ");
-                Console.WriteLine($"          {u}   {u}   {u}    ");
-                Console.WriteLine($"          {o}   {o}   {o}    ");
-                Console.WriteLine($"          {p}   {p}   {p}    ");
-                
-
-
-
+                Console.WriteLine("         -----------");
+                Console.WriteLine($"         |{w}   {x}   {e}|    ");
+                Thread.Sleep(500);
+                Console.WriteLine($"         |{r}   {w}   {p}|    ");
+                Thread.Sleep(500);
+                Console.WriteLine($"         |{p}   {r}   {q}|    ");
+                Thread.Sleep(500);
+                Console.WriteLine($"         |{u}   {w}   {p}|    ");
+                Thread.Sleep(500);
+                Console.WriteLine($"         |{w}   {q}   {o}|    ");
+                Thread.Sleep(500);
+                Console.WriteLine($"         |{r}   {q}   {o}|    ");
+                Thread.Sleep(500);
+                Console.WriteLine($"         |{e}   {t}   {o}|    ");
+                Thread.Sleep(500);
+                Console.WriteLine($"         |{p}   {e}   {i}|    ");
+                Thread.Sleep(800);
+                Console.WriteLine($"         |{o}   {w}   {u}|    ");
+                Thread.Sleep(1000);
+                Console.WriteLine($"         |{r}   {p}   {q}|    ");
+                Thread.Sleep(1200);
+                Console.WriteLine($"         |{p}   {t}   {o}|    ");
+                break;
             }
             
 
@@ -137,9 +164,9 @@ class Program
                 Thread.Sleep(1500);
             
 
-            int a = random.Next(1, 10);
-            int b = random.Next(1, 10);
-            int c = random.Next(1, 10);
+            int a = random.Next(1, 8);
+            int b = random.Next(1, 8);
+            int c = random.Next(1, 8);
 
             
 
@@ -151,7 +178,7 @@ class Program
             games++;
             if (a == b && b == c)
             {
-                int prize = bet * 10;
+                int prize = sazka * 10;
                 balance += prize;
 
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -163,7 +190,7 @@ class Program
             }
             else if (a == b || a == c || b == c)
             {
-                int prize = bet * 2;
+                int prize = sazka * 2;
                 balance += prize;
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("dvě stejna čisla!");
@@ -174,9 +201,9 @@ class Program
             }
             else
             {
-                balance -= bet;
+                balance -= sazka;
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("prohral jsi " + bet + "Kč");
+                Console.WriteLine("prohral jsi " + sazka + "Kč");
                 Console.ResetColor();
 
                 loses++; 
@@ -189,6 +216,7 @@ class Program
                 Console.WriteLine("Konec hry");
                 break;
             }
+            Thread.Sleep(500);
             Console.WriteLine();
             Console.WriteLine("stiskni Enter pro pokračovani");
             Console.ReadLine();
